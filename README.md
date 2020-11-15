@@ -1,5 +1,7 @@
-node-ansible [![Build Status](https://travis-ci.org/shaharke/node-ansible.png?branch=develop)](https://travis-ci.org/shaharke/node-ansible)
+node-ansible-control
 ============
+
+> Updated Fork of https://github.com/shaharke/node-ansible
 
 Programmatic interface in Node.js for executing Ansible ad-hoc commands and playbooks
 
@@ -7,7 +9,7 @@ Programmatic interface in Node.js for executing Ansible ad-hoc commands and play
 
 ### Installation
 
-`npm install node-ansible --save`
+`npm install node-ansible-control --save`
 
 **NOTE:** I think it goes without saying, but I'll mention it anyway - you MUST have ansible installed on the same machine
 on which your node process is going to run.
@@ -16,7 +18,7 @@ on which your node process is going to run.
 ### Crash Course
 
 ```javascript
-var Ansible = require('node-ansible');
+var Ansible = require('node-ansible-control');
 var command = new Ansible.AdHoc().module('shell').hosts('local').args("echo 'hello'");
 command.exec();
 ```
