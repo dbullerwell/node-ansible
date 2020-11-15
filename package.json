@@ -21,15 +21,15 @@
     "url": "https://github.com/shaharke/node-ansible/issues"
   },
   "devDependencies": {
-    "mocha": "~1.17.0",
-    "chai": "~1.8.1",
-    "sinon": "~1.7.3",
-    "chai-as-promised": "~4.1.0",
-    "sinon-chai": "~2.4.0"
+    "mocha": "~8.2.1",
+    "chai": "~4.2.0",
+    "sinon": "~9.2.1",
+    "chai-as-promised": "~7.1.1",
+    "sinon-chai": "~3.5.0"
   },
   "dependencies": {
     "mock-spawn": "^0.2.6",
-    "q": "~1.0.0",
-    "underscore": "~1.5.2"
+    "q": "~1.5.1",
+    "underscore": "~1.11.0"
   }
 }

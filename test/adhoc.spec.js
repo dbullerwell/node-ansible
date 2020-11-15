@@ -12,6 +12,8 @@ chai.use(chaiAsPromised);
 
 describe('AdHoc command', function() {
 
+  const sandbox = sinon.createSandbox();
+
   var mySpawn = mockSpawn();
   var oldSpawn = process.spawn;
   var spawnSpy;
@@ -19,11 +21,11 @@ describe('AdHoc command', function() {
 
   before(function() {
     process.spawn = mySpawn;
-    spawnSpy = sinon.spy(process, 'spawn');
+    spawnSpy = sandbox.spy(process, 'spawn');
   })
 
-  beforeEach(function() {
-    spawnSpy.reset();
+  afterEach(() => {
+    sandbox.restore();
   })
 
   var AdHoc = require("../index").AdHoc;
@@ -33,7 +35,7 @@ describe('AdHoc command', function() {
     it('should be translated successfully to ansible command', function(done) {
       var command = new AdHoc().module('shell').hosts('local').args("echo 'hello'");
       expect(command.exec()).to.be.fulfilled.then(function() {
-        expect(spawnSpy).to.be.calledWith('ansible', ['local', '-m', 'shell', '-a', 'echo \'hello\'']);
+        expect(spawnSpy).to.be.calledWith('ansible', ["local", "-m", "shell", "-a", "echo 'hello'"]);
         done();
       }).done();
     })
@@ -41,11 +43,6 @@ describe('AdHoc command', function() {
   })
 
   describe('with no hosts', function() {
-
-    it('should be rejected', function() {
-      var command = new AdHoc().module('shell').args("echo 'hello'");
-      expect(command.exec()).to.be.rejected;
-    })
 
     it('should include reason in rejection', function(done) {
       var command = new AdHoc().module('shell').args(null, "echo 'hello'");
