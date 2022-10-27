@@ -1,0 +1,43 @@
+{
+  "extends": [
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "project": "./tsconfig.json",
+    "tsconfigRootDir": "."
+  },
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "indent": 0,
+
+    "@typescript-eslint/ban-ts-ignore": 0,
+    "@typescript-eslint/camelcase": 0,
+    "@typescript-eslint/member-delimiter-style": 0,
+    "@typescript-eslint/no-non-null-assertion": 0,
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+
+    "linebreak-style": ["error", "unix"],
+    "quotes": [
+      "error",
+      "single",
+      { "allowTemplateLiterals": true, "avoidEscape": true }
+    ],
+    "semi": ["error", "never"],
+    "comma-dangle": [
+      "warn",
+      {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "never"
+      }
+    ],
+    "no-console": ["warn", { "allow": ["warn", "error"] }]
+  }
+}
