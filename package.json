@@ -1,0 +1,32 @@
+{
+  "name": "@dbullerwell/node-ansible",
+  "version": "0.1.0",
+  "description": "Fork of node-ansible. Programmatic interface in Node.js for executing Ansible ad-hoc commands and playbooks",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "artifactregistry:login": "NPMRC=${NPMRC_LOCATION:-~/.npmrc} && npx google-artifactregistry-auth --repo-config=$NPMRC --credential-config=$NPMRC",
+    "build": "tsc -p tsconfig.json",
+    "build:watch": "tsc -p tsconfig.json --watch",
+    "lint": "eslint ./src --ignore-path .eslintignore --max-warnings=0"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^18.11.4",
+    "@typescript-eslint/eslint-plugin": "^5.41.0",
+    "@typescript-eslint/parser": "^5.41.0",
+    "chai": "~4.2.0",
+    "chai-as-promised": "~7.1.1",
+    "eslint": "^8.26.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "mocha": "~8.2.1",
+    "prettier": "^2.7.1",
+    "sinon": "~9.2.1",
+    "sinon-chai": "~3.5.0",
+    "typescript": "^4.8.4"
+  }
+}

@@ -1,0 +1,4 @@
+rollup.config.js
+**/*.generated.ts
+**/*.generated.js
+**/*.d.ts
